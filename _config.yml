@@ -1,17 +1,17 @@
-title: Jacob Charles Wilson
+title: Jake Wilson
 description: 
-url: https://jacobcharleswilson.com
+url: https://jkwlsn.com
 author:
     name: Jacob Charles Wilson
-    email: hello@jacobcharleswilson.com
+    email: hi@jkwlsn.dev
     instagram: jcbchrlswlsn
-    github: jclwilson
+    github: jkwlsn
     linkedin: jacobcharleswilson
 social:
-  name: Jacob Charles Wilson
+  name: Jake Wilson
   links:
     - https://www.instagram.com/jcbchrlswlsn
-    - https://github.com/jclwilson
+    - https://github.com/jkwlsn
     - https://www.linkedin.com/jacobcharleswilson
 lang: en_GB
 permalink: ":title:output_ext"
@@ -20,7 +20,7 @@ markdown: kramdown
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
 
-cdn_url: https://jacobcharleswilson.com/
+cdn_url: https://jkwlsn.dev/
 
 plugins:
 - jekyll-seo-tag
@@ -33,5 +33,5 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: post
-      author: Jacob Charles Wilson # An entity primarily responsible for making the resource.
+      author: Jake Wilson
       language: English # A language of the resource.
