@@ -1,18 +1,18 @@
 title: Jake Wilson
-description: 
-url: https://jkwlsn.com
+description:
+url: https://jkwlsn.dev
 author:
     name: Jake Wilson
     email: hi@jkwlsn.dev
     instagram: jcbchrlswlsn
     github: jkwlsn
-    linkedin: jacobcharleswilson
+    linkedin: jkwlsn
 social:
   name: Jake Wilson
   links:
     - https://www.instagram.com/jcbchrlswlsn
     - https://github.com/jkwlsn
-    - https://www.linkedin.com/jacobcharleswilson
+    - https://www.linkedin.com/jkwlsn
 lang: en_GB
 permalink: ":title:output_ext"
 markdown: kramdown
