@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% seo %}
         <link rel="icon" sizes="any" href="/favicon.ico">
-        <link type="application/atom+xml" rel="alternate" href="https://jacobcharleswilson.com/feed.xml" title="Jacob Charles Wilson - Atom Feed">
+        <link type="application/atom+xml" rel="alternate" href="{{ site.url | append: 'feed.xml' }}" title="{{ site.title | append: ' - Atom Feed' }}">
         <style>{% include main.css %}</style>
 	</head>
 	<body>
