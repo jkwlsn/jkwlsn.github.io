@@ -1,34 +1,34 @@
 :root {
-    --primary-colour: blue;
-    --secondary-colour: white;
-    --tertiary-colour: white;
+  --primary-colour: blue;
+  --secondary-colour: white;
+  --tertiary-colour: white;
 }
 
 body {
-    font-family: "IBM Plex Mono", hack, monospace, monospace;
-    font-size: 1.7em;
-    margin: 0;
-    padding: 1em;
-    background-color: var(--primary-colour);
-    color: var(--secondary-colour);
-    display: flex;
-    flex-direction: column;
+  font-family: "IBM Plex Mono", hack, monospace, monospace;
+  font-size: 1.7em;
+  margin: 0;
+  padding: 1em;
+  background-color: var(--primary-colour);
+  color: var(--secondary-colour);
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-    order: -1
+  order: -1;
 }
 
 main {
-    order: 1
+  order: 1;
 }
 
 nav {
-    order: 2
+  order: 2;
 }
 
 a {
-    color: var(--tertiary-colour);
+  color: var(--tertiary-colour);
 }
 
 h1,
@@ -36,46 +36,46 @@ h2,
 h3,
 p,
 ul {
-    font-size: inherit;
-    font-weight: normal;
+  font-size: inherit;
+  font-weight: normal;
 }
 
 img,
 time,
 iframe {
-    display: block;
+  display: block;
 }
 
 img {
-    width: 100%;
-    filter: grayscale(1);
+  width: 100%;
+  filter: grayscale(1);
 }
 
 iframe {
-    margin: 0 auto;
-    max-width: 100%;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 blockquote,
 q {
-    quotes: "\0027" "\0027" "\0022" "\0022";
+  quotes: "\0027" "\0027" "\0022" "\0022";
 }
 
 blockquote p:before {
-    content: open-quote;
+  content: open-quote;
 }
 
 blockquote p:after {
-    content: close-quote;
+  content: close-quote;
 }
 
 hr {
-    border: none;
-    color: inherit;
+  border: none;
+  color: inherit;
 }
 
 hr::before {
-    content: "* * *";
+  content: "* * *";
 }
 
 header,
@@ -84,83 +84,83 @@ main ul li,
 figure,
 p,
 iframe {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 #cursor {
-    display: inline-block;
-    background-color: var(--secondary-colour);
-    color: var(--primary-colour);
-    animation: blinker 1s step-start infinite;
+  display: inline-block;
+  background-color: var(--secondary-colour);
+  color: var(--primary-colour);
+  animation: blinker 1s step-start infinite;
 }
 
-@media screen and (min-width:60em) {
-    body {
-        display: block;
-    }
+@media screen and (min-width: 60em) {
+  body {
+    display: block;
+  }
 
-    header,
-    h1,
-    nav,
-    ul,
-    li {
-        display: inline;
-    }
+  header,
+  h1,
+  nav,
+  ul,
+  li {
+    display: inline;
+  }
 
-    nav ul {
-        padding: 0;
-        list-style-type: none;
-    }
+  nav ul {
+    padding: 0;
+    list-style-type: none;
+  }
 
-    main {
-        margin-top: 1em;
-    }
+  main {
+    margin-top: 1em;
+  }
 
-    header:after,
-    nav li:not(:last-child):after {
-        content: " / ";
-    }
+  header:after,
+  nav li:not(:last-child):after {
+    content: " / ";
+  }
 }
 
 @media print {
-    body {
-        background: none;
-    }
+  body {
+    background: none;
+  }
 
-    img {
-        width: 33%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  img {
+    width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    article p a:after {
-        content: " [" attr(href) "] ";
-    }
+  article p a:after {
+    content: " [" attr(href) "] ";
+  }
 
-    .no-print {
-        display: none;
-    }
+  .no-print {
+    display: none;
+  }
 }
 
 :focus,
 a:hover,
 button:hover,
 ::selection {
-    color: var(--primary-colour);
-    background-color: var(--tertiary-colour);
+  color: var(--primary-colour);
+  background-color: var(--tertiary-colour);
 }
 
 .no-show {
-    display: none;
+  display: none;
 }
 
 @keyframes blinker {
-    50% {
-        color: var(--secondary-colour);
-        background-color: var(--primary-colour);
-    }
+  50% {
+    color: var(--secondary-colour);
+    background-color: var(--primary-colour);
+  }
 }

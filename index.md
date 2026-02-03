@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 I used to be a writer; now I'm learning to cod<span id=cursor>e</span>
 
 In January 2025, I enrolled at [Makers Academy](https://github.com/makersacademy), a selective, 16-week, full-time, London-based bootcamp designed for career switchers. I chose the software engineering and DevOps tracks to build on my previous experience in front-end design.
