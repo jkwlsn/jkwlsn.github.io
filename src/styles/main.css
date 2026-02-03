@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "IBM Plex Mono", hack, monospace, monospace;
+  font-family: 'IBM Plex Mono', hack, monospace, monospace;
   font-size: 1.7em;
   margin: 0;
   padding: 1em;
@@ -58,7 +58,7 @@ iframe {
 
 blockquote,
 q {
-  quotes: "\0027" "\0027" "\0022" "\0022";
+  quotes: '\0027' '\0027' '\0022' '\0022';
 }
 
 blockquote p:before {
@@ -75,7 +75,7 @@ hr {
 }
 
 hr::before {
-  content: "* * *";
+  content: '* * *';
 }
 
 header,
@@ -118,7 +118,7 @@ iframe {
 
   header:after,
   nav li:not(:last-child):after {
-    content: " / ";
+    content: ' / ';
   }
 }
 
@@ -138,7 +138,7 @@ iframe {
   }
 
   article p a:after {
-    content: " [" attr(href) "] ";
+    content: ' [' attr(href) '] ';
   }
 
   .no-print {
