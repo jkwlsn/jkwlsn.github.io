@@ -7,8 +7,8 @@
 body {
     font-family: "IBM Plex Mono", hack, monospace, monospace;
     font-size: 1.7em;
-    margin:0;
-    padding:1em;
+    margin: 0;
+    padding: 1em;
     background-color: var(--primary-colour);
     color: var(--secondary-colour);
     display: flex;
@@ -23,20 +23,27 @@ main {
     order: 1
 }
 
-nav {order: 2}
+nav {
+    order: 2
+}
 
 a {
     color: var(--tertiary-colour);
 }
 
-h1, h2, h3, p, ul {
-    font-size:inherit;
-    font-weight:normal;
-    margin: 0;
+h1,
+h2,
+h3,
+p,
+ul {
+    font-size: inherit;
+    font-weight: normal;
 }
 
-img, time, iframe {
-    display:block;
+img,
+time,
+iframe {
+    display: block;
 }
 
 img {
@@ -46,10 +53,11 @@ img {
 
 iframe {
     margin: 0 auto;
-    max-width:100%;
+    max-width: 100%;
 }
 
-blockquote, q {
+blockquote,
+q {
     quotes: "\0027" "\0027" "\0022" "\0022";
 }
 
@@ -70,7 +78,12 @@ hr::before {
     content: "* * *";
 }
 
-header, article, main ul li, figure, p, iframe {
+header,
+article,
+main ul li,
+figure,
+p,
+iframe {
     margin-bottom: 1em;
 }
 
@@ -86,8 +99,12 @@ header, article, main ul li, figure, p, iframe {
         display: block;
     }
 
-    header, h1, nav, ul, li {
-        display:inline;
+    header,
+    h1,
+    nav,
+    ul,
+    li {
+        display: inline;
     }
 
     nav ul {
@@ -99,7 +116,8 @@ header, article, main ul li, figure, p, iframe {
         margin-top: 1em;
     }
 
-    header:after, nav li:not(:last-child):after {
+    header:after,
+    nav li:not(:last-child):after {
         content: " / ";
     }
 }
@@ -120,26 +138,29 @@ header, article, main ul li, figure, p, iframe {
     }
 
     article p a:after {
-        content:" [" attr(href) "] ";
+        content: " [" attr(href) "] ";
     }
-    
+
     .no-print {
         display: none;
     }
 }
 
-:focus, a:hover, button:hover, ::selection {
+:focus,
+a:hover,
+button:hover,
+::selection {
     color: var(--primary-colour);
     background-color: var(--tertiary-colour);
 }
 
 .no-show {
-    display:none;
+    display: none;
 }
 
 @keyframes blinker {
-  50% {
-    color: var(--secondary-colour);
-    background-color: var(--primary-colour);
-  }
+    50% {
+        color: var(--secondary-colour);
+        background-color: var(--primary-colour);
+    }
 }
