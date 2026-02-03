@@ -1,0 +1,199 @@
+:root {
+  --primary-colour: blue;
+  --secondary-colour: white;
+  --tertiary-colour: white;
+  --body-mono-fonts: 'IBM Plex Mono', hack, monospace, monospace;
+  --body-serif-fonts: 'Garamond', 'Times New Roman', serif;
+  --display-serif-fonts: 'Instrument Serif', 'Playfair Display';
+  --heading-fonts:
+    var(--display-serif-fonts), var(--body-serif-fonts), var(--body-mono-fonts);
+  --body-fonts-size: 1.5rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  color: var(--secondary-colour);
+  background-image: linear-gradient(to bottom, blue 40%, white);
+  padding: 1em 1em 3em 1em;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+
+  & #about {
+    order: -1;
+  }
+}
+
+main {
+  background-color: var(--secondary-colour);
+  color: black;
+  font-size: var(--body-fonts-size);
+  padding: 3em 1em 1em 1em;
+}
+
+a {
+  color: inherit;
+}
+
+#blog {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--display-serif-fonts);
+    font-size: 3em;
+  }
+
+  & ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  & ol li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+
+    & h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    & p {
+      margin-top: 0;
+      font-family: var(--body-serif-fonts);
+    }
+
+    & time {
+      order: -1;
+      font-size: 1rem;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+p,
+li {
+  font-family: var(--body-mono-fonts);
+  font-size: var(--body-fonts-size);
+  font-weight: normal;
+}
+
+img,
+time,
+iframe {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+iframe {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+blockquote,
+q {
+  quotes: '\0027' '\0027' '\0022' '\0022';
+}
+
+blockquote p:before {
+  content: open-quote;
+}
+
+blockquote p:after {
+  content: close-quote;
+}
+
+hr {
+  border: none;
+  color: inherit;
+}
+
+hr::before {
+  content: '---';
+}
+
+article,
+main ul li,
+figure,
+p,
+iframe {
+  margin-bottom: 1em;
+}
+
+#cursor {
+  display: inline-block;
+  background-color: var(--secondary-colour);
+  color: var(--primary-colour);
+  animation: blinker 1s step-start infinite;
+}
+
+@media screen and (min-width: 60em) {
+  h1,
+  nav,
+  ul,
+  li {
+    display: inline;
+  }
+
+  nav ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  nav li:before {
+    content: ' / ';
+  }
+}
+
+@media print {
+  body {
+    background: none;
+  }
+
+  img {
+    width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  article p a:after {
+    content: ' [' attr(href) '] ';
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+:focus,
+a:hover,
+button:hover,
+::selection {
+  color: var(--primary-colour);
+  background-color: var(--tertiary-colour);
+}
+
+.no-show {
+  display: none;
+}
+
+@keyframes blinker {
+  50% {
+    color: var(--secondary-colour);
+    background-color: var(--primary-colour);
+  }
+}
