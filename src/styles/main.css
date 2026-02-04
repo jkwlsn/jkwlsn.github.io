@@ -26,6 +26,11 @@ header {
   & #about {
     order: -1;
   }
+
+  & nav,
+  h1 {
+    display: inline;
+  }
 }
 
 main {
@@ -107,24 +112,6 @@ iframe {
   background-color: var(--secondary-colour);
   color: var(--primary-colour);
   animation: blinker 1s step-start infinite;
-}
-
-@media screen and (min-width: 60em) {
-  h1,
-  nav,
-  ul,
-  li {
-    display: inline;
-  }
-
-  nav ul {
-    padding: 0;
-    list-style-type: none;
-  }
-
-  nav li:before {
-    content: ' / ';
-  }
 }
 
 @media print {
