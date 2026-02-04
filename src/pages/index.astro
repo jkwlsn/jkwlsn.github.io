@@ -1,5 +1,9 @@
 ---
 import '../styles/main.css';
+
+const allPosts = Object.values(
+  import.meta.glob('./posts/*.md', { eager: true }),
+);
 ---
 
 <html lang="en">
@@ -57,5 +61,24 @@ import '../styles/main.css';
         </p>
       </section>
     </header>
+    <main>
+      <section id="blog">
+        <ol>
+          {
+            allPosts.map((post: any) => (
+              <li>
+                <h1>
+                  <a href={post.url} title="{post.}">
+                    {post.frontmatter.title}
+                  </a>
+                </h1>
+                <time>{post.frontmatter.pubDate}</time>
+                <p>{post.frontmatter.standfirst}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+    </main>
   </body>
 </html>
