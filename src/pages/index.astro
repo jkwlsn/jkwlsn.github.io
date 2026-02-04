@@ -2,6 +2,7 @@
 import '../styles/main.css';
 
 import Preview from '../components/Preview.astro';
+import Navigation from '../components/Navigation.astro';
 
 const allPosts = Object.values(
   import.meta.glob('./posts/*.md', { eager: true }),
@@ -27,29 +28,7 @@ const allPosts = Object.values(
     <header>
       <div>
         <h1><a href="/">Jake Wilson</a></h1>
-        <nav>
-          <ul>
-            <li>
-              <a rel="author" title="hi@jkwlsn.dev" href="mailto:hi@jkwlsn.dev"
-                >Email</a
-              >
-            </li>
-            <li>
-              <a
-                rel="external"
-                title="@jkwlsn on GitHub"
-                href="https://github.com/jkwlsn">Github</a
-              >
-            </li>
-            <li>
-              <a
-                rel="external"
-                title="@jkwlsn  on LinkedIn"
-                href="https://www.linkedin.com/in/jkwlsn">LinkedIn</a
-              >
-            </li>
-          </ul>
-        </nav>
+        <Navigation />
       </div>
       <section id="about">
         <p>
