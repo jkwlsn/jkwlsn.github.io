@@ -1,5 +1,11 @@
 ---
 import '../styles/main.css';
+
+import Preview from '../components/Preview.astro';
+
+const allPosts = Object.values(
+  import.meta.glob('./posts/*.md', { eager: true }),
+);
 ---
 
 <html lang="en">
@@ -57,5 +63,23 @@ import '../styles/main.css';
         </p>
       </section>
     </header>
+    <main>
+      <section id="blog">
+        <ol>
+          {
+            allPosts.map((post: any) => (
+              <li>
+                <Preview
+                  url={post.url}
+                  title={post.frontmatter.title}
+                  pubDate={post.frontmatter.pubDate}
+                  standfirst={post.frontmatter.standfirst}
+                />
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+    </main>
   </body>
 </html>
