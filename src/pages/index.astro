@@ -1,6 +1,7 @@
 ---
 import '../styles/main.css';
 
+import About from '../components/About.astro';
 import Preview from '../components/Preview.astro';
 import Navigation from '../components/Navigation.astro';
 
@@ -30,17 +31,7 @@ const allPosts = Object.values(
         <h1><a href="/">Jake Wilson</a></h1>
         <Navigation />
       </div>
-      <section id="about">
-        <p>
-          I used to write; now I cod<span id="cursor">e</span>
-        </p>
-        <p>
-          Take a look at my work on <a href="https://github.com/jkwlsn"
-            >GitHub</a
-          >, bring me onboard as an open-source contributor, or meet me for a
-          coffee: <a href="mailto:hi@jkwlsn.dev">hi@jkwlsn.dev</a>.
-        </p>
-      </section>
+      <About />
     </header>
     <main>
       <section id="blog">
