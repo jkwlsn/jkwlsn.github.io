@@ -1,6 +1,8 @@
 ---
 import '../styles/main.css';
 
+import Preview from '../components/Preview.astro';
+
 const allPosts = Object.values(
   import.meta.glob('./posts/*.md', { eager: true }),
 );
@@ -67,13 +69,12 @@ const allPosts = Object.values(
           {
             allPosts.map((post: any) => (
               <li>
-                <h1>
-                  <a href={post.url} title="{post.}">
-                    {post.frontmatter.title}
-                  </a>
-                </h1>
-                <time>{post.frontmatter.pubDate}</time>
-                <p>{post.frontmatter.standfirst}</p>
+                <Preview
+                  url={post.url}
+                  title={post.frontmatter.title}
+                  pubDate={post.frontmatter.pubDate}
+                  standfirst={post.frontmatter.standfirst}
+                />
               </li>
             ))
           }
