@@ -1,0 +1,57 @@
+---
+import Preview from '../components/Preview.astro';
+import BaseLayout from './BaseLayout.astro';
+
+const { frontmatter } = Astro.props;
+const { title, url, pubDate, standfirst } = frontmatter;
+---
+
+<BaseLayout>
+  <article>
+    <header>
+      <Preview
+        title={title}
+        url={url}
+        pubDate={pubDate}
+        standfirst={standfirst}
+      />
+    </header>
+    <slot />
+  </article>
+</BaseLayout>
+
+<style>
+  iframe {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  blockquote,
+  q {
+    quotes: '\0027' '\0027' '\0022' '\0022';
+  }
+
+  blockquote p:before {
+    content: open-quote;
+  }
+
+  blockquote p:after {
+    content: close-quote;
+  }
+
+  hr {
+    border: none;
+    color: inherit;
+  }
+
+  hr::before {
+    content: '---';
+  }
+
+  article,
+  figure,
+  p,
+  iframe {
+    margin-bottom: 1em;
+  }
+</style>

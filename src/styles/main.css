@@ -72,41 +72,6 @@ img {
   width: 100%;
 }
 
-iframe {
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-blockquote,
-q {
-  quotes: '\0027' '\0027' '\0022' '\0022';
-}
-
-blockquote p:before {
-  content: open-quote;
-}
-
-blockquote p:after {
-  content: close-quote;
-}
-
-hr {
-  border: none;
-  color: inherit;
-}
-
-hr::before {
-  content: '---';
-}
-
-article,
-main ul li,
-figure,
-p,
-iframe {
-  margin-bottom: 1em;
-}
-
 #cursor {
   display: inline-block;
   background-color: var(--secondary-colour);
