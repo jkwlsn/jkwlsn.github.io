@@ -18,16 +18,8 @@ import Navigation from '../components/Navigation.astro';
     display: flex;
     flex-direction: column;
 
-    div,
-    #about {
-      padding-inline: 1em;
-    }
-    #about {
-      background-color: blue;
-    }
     div {
-      padding-top: 1em;
-      padding-bottom: 5em;
+      padding: 1em 1em 5em 1em;
       background-image: linear-gradient(to bottom, blue 40%, white);
     }
 
@@ -36,21 +28,20 @@ import Navigation from '../components/Navigation.astro';
       display: inline;
     }
 
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
     h1,
-    h2,
-    h3 {
+    a,
+    li {
       font-weight: normal;
+      font-size: 1rem;
     }
 
     #about {
       order: -1;
-    }
-
-    #cursor {
-      display: inline-block;
-      background-color: var(--secondary-colour);
-      color: var(--primary-colour);
-      animation: blinker 1s step-start infinite;
     }
   }
 </style>
