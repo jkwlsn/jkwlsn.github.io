@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "lint": "prettier -w . && npm run lint:eslint",
-    "lint:eslint": "eslint .",
+    "lint:eslint": "eslint --fix .",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
