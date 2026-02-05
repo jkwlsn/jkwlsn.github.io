@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "lint": "prettier -w .",
+    "lint": "prettier -w . && npm run lint:eslint",
+    "lint:eslint": "eslint .",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -14,6 +15,11 @@
     "astro": "^5.17.1"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1"
   }
