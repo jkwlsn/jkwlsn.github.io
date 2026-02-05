@@ -1,18 +1,20 @@
 :root {
   --primary-colour: blue;
   --secondary-colour: white;
-  --tertiary-colour: white;
+  --tertiary-colour: black;
   --body-mono-fonts: 'IBM Plex Mono', hack, monospace, monospace;
   --body-serif-fonts: 'Garamond', 'Times New Roman', serif;
   --display-serif-fonts: 'Instrument Serif', 'Playfair Display';
   --heading-fonts:
     var(--display-serif-fonts), var(--body-serif-fonts), var(--body-mono-fonts);
   --body-fonts-size: 1.5rem;
+  font-size: var(--body-fonts-size);
 }
 
 body {
   margin: 0;
   padding: 0;
+
   a {
     color: inherit;
   }
@@ -47,11 +49,7 @@ a:hover,
 button:hover,
 ::selection {
   color: var(--primary-colour);
-  background-color: var(--tertiary-colour);
-}
-
-.no-show {
-  display: none;
+  background-color: var(--secondary-colour);
 }
 
 @keyframes blinker {
