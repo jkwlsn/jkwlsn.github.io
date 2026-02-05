@@ -1,0 +1,56 @@
+---
+import About from '../components/About.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<header>
+  <div>
+    <h1><a href="/">Jake Wilson</a></h1>
+    <Navigation />
+  </div>
+  <About />
+</header>
+
+<style>
+  header {
+    color: var(--secondary-colour);
+    font-family: var(--body-mono-fonts);
+    display: flex;
+    flex-direction: column;
+
+    div,
+    #about {
+      padding-inline: 1em;
+    }
+    #about {
+      background-color: blue;
+    }
+    div {
+      padding-top: 1em;
+      padding-bottom: 5em;
+      background-image: linear-gradient(to bottom, blue 40%, white);
+    }
+
+    nav,
+    h1 {
+      display: inline;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: normal;
+    }
+
+    #about {
+      order: -1;
+    }
+
+    #cursor {
+      display: inline-block;
+      background-color: var(--secondary-colour);
+      color: var(--primary-colour);
+      animation: blinker 1s step-start infinite;
+    }
+  }
+</style>
