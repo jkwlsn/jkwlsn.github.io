@@ -33,3 +33,58 @@ import Navigation from '../components/Navigation.astro';
     </main>
   </body>
 </html>
+
+<style>
+  header {
+    color: var(--secondary-colour);
+    background-image: linear-gradient(to bottom, blue 40%, white);
+    padding: 1em 1em 3em 1em;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+
+    nav,
+    h1 {
+      display: inline;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li {
+      font-family: var(--body-mono-fonts);
+      font-size: var(--body-fonts-size);
+      font-weight: normal;
+    }
+
+    #about {
+      order: -1;
+    }
+
+    #cursor {
+      display: inline-block;
+      background-color: var(--secondary-colour);
+      color: var(--primary-colour);
+      animation: blinker 1s step-start infinite;
+    }
+  }
+
+  main {
+    background-color: var(--secondary-colour);
+    color: black;
+    font-size: var(--body-fonts-size);
+    padding: 3em 1em 1em 1em;
+
+    p {
+      font-family: var(--body-serif-fonts);
+    }
+
+    img,
+    time,
+    iframe {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
