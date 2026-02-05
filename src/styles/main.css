@@ -13,70 +13,9 @@
 body {
   margin: 0;
   padding: 0;
-}
-
-header {
-  color: var(--secondary-colour);
-  background-image: linear-gradient(to bottom, blue 40%, white);
-  padding: 1em 1em 3em 1em;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-
-  & #about {
-    order: -1;
+  a {
+    color: inherit;
   }
-
-  & nav,
-  h1 {
-    display: inline;
-  }
-}
-
-main {
-  background-color: var(--secondary-colour);
-  color: black;
-  font-size: var(--body-fonts-size);
-  padding: 3em 1em 1em 1em;
-}
-
-a {
-  color: inherit;
-}
-
-#blog {
-  ol {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-}
-
-h1,
-h2,
-h3,
-p,
-li {
-  font-family: var(--body-mono-fonts);
-  font-size: var(--body-fonts-size);
-  font-weight: normal;
-}
-
-img,
-time,
-iframe {
-  display: block;
-}
-
-img {
-  width: 100%;
-}
-
-#cursor {
-  display: inline-block;
-  background-color: var(--secondary-colour);
-  color: var(--primary-colour);
-  animation: blinker 1s step-start infinite;
 }
 
 @media print {
