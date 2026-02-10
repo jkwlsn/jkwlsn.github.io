@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /im-learnding/
-
-Sitemap: https://jacobcharleswilson.com/sitemap.xml
