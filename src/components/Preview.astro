@@ -1,5 +1,24 @@
 ---
 const { title, url, pubDate, standfirst } = Astro.props;
+
+const options: Intl.DateTimeFormatOptions = {
+  hour12: false,
+  dateStyle: 'full',
+  // timeStyle: 'long',
+  // timeZone: 'Europe/London',
+  // hour: 'numeric',
+  // minute: 'numeric',
+  // day: 'numeric',
+  // weekday: 'long',
+  // month: 'long',
+  // year: 'numeric',
+  // timeZoneName: 'long',
+  //  era: 'long',
+};
+
+const date = new Date(pubDate);
+
+const displayDate = new Intl.DateTimeFormat(undefined, options).format(date);
 ---
 
 <div>
@@ -8,7 +27,7 @@ const { title, url, pubDate, standfirst } = Astro.props;
       {title}
     </a>
   </h1>
-  <time>{pubDate}</time>
+  <time>{displayDate}</time>
   <p>{standfirst}</p>
 </div>
 
