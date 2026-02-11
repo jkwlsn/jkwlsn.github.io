@@ -44,13 +44,7 @@ body {
   }
 }
 
-:focus,
-a:hover,
-button:hover,
-::selection {
-  color: var(--primary-colour);
-  background-color: var(--secondary-colour);
-}
+
 
 @keyframes blinker {
   50% {
