@@ -15,12 +15,18 @@ import Navigation from '../components/Navigation.astro';
   header {
     color: var(--secondary-colour);
     font-family: var(--body-mono-fonts);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    background-image: linear-gradient(to bottom, blue 40%, white);
 
     div {
       padding: 1em 1em 5em 1em;
-      background-image: linear-gradient(to bottom, blue 40%, white);
+      grid-column: 1 / -1;
+    }
+
+    section {
+      grid-column: 1 / -1;
     }
 
     nav,
