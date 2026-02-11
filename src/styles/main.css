@@ -80,6 +80,12 @@ main {
   }
 }
 
+@media screen and (width >= 40em) {
+  :root {
+    --body-fonts-size: 1.5rem;
+  }
+}
+
 @keyframes blinker {
   50% {
     color: var(--secondary-colour);
