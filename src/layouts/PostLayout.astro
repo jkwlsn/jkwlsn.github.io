@@ -22,12 +22,6 @@ const { title, url, pubDate, standfirst } = frontmatter;
 
 <style>
   article {
-
-    iframe {
-      margin: 0 auto;
-      max-width: 100%;
-    }
-
     blockquote,
     q {
       quotes: '\0027' '\0027' '\0022' '\0022';
@@ -50,6 +44,9 @@ const { title, url, pubDate, standfirst } = frontmatter;
       content: '---';
     }
 
+    p {
+      font-family: var(--body-serif-fonts);
+    }
 
     pre {
       background: antiquewhite;
