@@ -43,5 +43,13 @@ import Navigation from '../components/Navigation.astro';
     #about {
       order: -1;
     }
+
+    :focus,
+    a:hover,
+    button:hover,
+    ::selection {
+      color: var(--primary-colour);
+      background-color: var(--secondary-colour);
+    }
   }
 </style>
