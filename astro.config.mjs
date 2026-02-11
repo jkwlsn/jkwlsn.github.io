@@ -7,5 +7,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://jkwlsn.dev',
   integrations: [sitemap()],
+  markdown: {
+    syntaxHighlight: false,
+  },
 });
-

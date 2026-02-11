@@ -21,37 +21,53 @@ const { title, url, pubDate, standfirst } = frontmatter;
 </BaseLayout>
 
 <style>
-  iframe {
-    margin: 0 auto;
-    max-width: 100%;
-  }
+  article {
 
-  blockquote,
-  q {
-    quotes: '\0027' '\0027' '\0022' '\0022';
-  }
+    iframe {
+      margin: 0 auto;
+      max-width: 100%;
+    }
 
-  blockquote p:before {
-    content: open-quote;
-  }
+    blockquote,
+    q {
+      quotes: '\0027' '\0027' '\0022' '\0022';
+    }
 
-  blockquote p:after {
-    content: close-quote;
-  }
+    blockquote p:before {
+      content: open-quote;
+    }
 
-  hr {
-    border: none;
-    color: inherit;
-  }
+    blockquote p:after {
+      content: close-quote;
+    }
 
-  hr::before {
-    content: '---';
-  }
+    hr {
+      border: none;
+      color: inherit;
+    }
 
-  article,
-  figure,
-  p,
-  iframe {
-    margin-bottom: 1em;
+    hr::before {
+      content: '---';
+    }
+
+
+    pre {
+      background: antiquewhite;
+      box-shadow: 0.5em 0.5em darkgrey;
+      margin: 2em;
+      padding: 0 0.5em;
+    }
+
+    code {
+      display: block;
+      overflow-wrap: break-word;
+      text-wrap: auto;
+      font-family: var(--body-fonts-monospace);
+      background-color: antiquewhite;
+      border-left: dotted 0.8em white;
+      border-right: dotted 0.8em darkgrey;
+      padding: 1em;
+      font-size: 0.8em;
+    }
   }
 </style>
