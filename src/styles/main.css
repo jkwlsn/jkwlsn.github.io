@@ -58,12 +58,26 @@ header {
   }
 }
 
-:focus,
-a:hover,
-button:hover,
-::selection {
-  color: var(--primary-colour);
-  background-color: var(--secondary-colour);
+header {
+  :focus,
+  a:hover,
+  button:hover,
+  ::selection {
+    color: var(--primary-colour);
+    background-color: var(--secondary-colour);
+  }
+}
+
+main {
+  button:hover,
+  ::selection {
+    background-color: var(--primary-colour);
+    color: var(--secondary-colour);
+  }
+  :focus,
+  a:hover {
+    color: var(--primary-colour);
+  }
 }
 
 @keyframes blinker {
