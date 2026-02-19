@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Instrument Serif';
+  src:
+    local('InstrumentSerif'),
+    url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+  font-weight: 200 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary-colour: blue;
   --secondary-colour: white;
@@ -19,20 +29,6 @@ body {
     color: inherit;
     text-decoration-thickness: from-font;
   }
-}
-
-header {
-  position: sticky;
-}
-.panel {
-  transition:
-    opacity 0.2s,
-    overlay 0.2s allow-discrete;
-  transition-behavior: allow-discrete;
-}
-.panel.hidden {
-  opacity: 0;
-  display: none;
 }
 
 @media print {
