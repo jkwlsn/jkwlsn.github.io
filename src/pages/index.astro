@@ -8,7 +8,7 @@ const allPosts = Object.values(
 ---
 
 <BaseLayout>
-  <section id="blog">
+  <section id="blog" class="index-page">
     <ol>
       {
         allPosts.map((post: any) => (
@@ -25,13 +25,3 @@ const allPosts = Object.values(
     </ol>
   </section>
 </BaseLayout>
-
-<style>
-  section {
-    ol {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-  }
-</style>

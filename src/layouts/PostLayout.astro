@@ -7,7 +7,7 @@ const { title, url, pubDate, standfirst } = frontmatter;
 ---
 
 <BaseLayout>
-  <article>
+  <article class="post-layout">
     <header>
       <Preview
         title={title}
@@ -19,61 +19,3 @@ const { title, url, pubDate, standfirst } = frontmatter;
     <slot />
   </article>
 </BaseLayout>
-
-<style>
-  article {
-    aside {
-      background: yellow;
-      box-shadow: 0.3em 0.3em gold;
-      color: black;
-      padding: 1em;
-      margin: 1.5em;
-      float: right;
-    }
-
-    blockquote,
-    q {
-      quotes: '\0027' '\0027' '\0022' '\0022';
-    }
-
-    blockquote p:before {
-      content: open-quote;
-    }
-
-    blockquote p:after {
-      content: close-quote;
-    }
-
-    hr {
-      border: none;
-      color: inherit;
-    }
-
-    hr::before {
-      content: '---';
-    }
-
-    p {
-      font-family: var(--body-serif-fonts);
-    }
-
-    pre {
-      background: antiquewhite;
-      box-shadow: 0.5em 0.5em darkgrey;
-      margin: 2em;
-      padding: 0 0.5em;
-    }
-
-    code {
-      display: block;
-      overflow-wrap: break-word;
-      text-wrap: auto;
-      font-family: var(--body-fonts-monospace);
-      background-color: antiquewhite;
-      border-left: dotted 0.8em white;
-      border-right: dotted 0.8em darkgrey;
-      padding: 1em;
-      font-size: 0.8em;
-    }
-  }
-</style>
