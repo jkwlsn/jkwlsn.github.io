@@ -8,7 +8,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 export default [
   // Global ignores
   {
-    ignores: ['node_modules/', 'dist/', '.astro/', 'public/'],
+    ignores: ['node_modules/', 'dist/', 'dev-dist/', '.astro/', 'public/'],
   },
   // Base ESLint configuration for JS/TS files
   {
