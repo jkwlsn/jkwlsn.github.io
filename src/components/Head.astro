@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/main.css';
+import { pwaInfo } from 'virtual:pwa-info';
 ---
 
 <meta charset="utf-8" />
@@ -10,4 +11,5 @@ import '../styles/main.css';
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<script src="/src/pwa.ts"></script>
 <ClientRouter />
