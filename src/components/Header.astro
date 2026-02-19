@@ -1,47 +1,8 @@
 ---
-import About from '../components/About.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<header>
-  <div>
-    <h1><a href="/">Jake Wilson</a></h1>
-    <Navigation />
-  </div>
-  <About />
+<header class="header-component">
+  <h1><a href="/">Jake Wilson</a></h1>
+  <Navigation />
 </header>
-
-<style>
-  header {
-    color: var(--secondary-colour);
-    font-family: var(--body-mono-fonts);
-    display: flex;
-    flex-direction: column;
-
-    div {
-      padding: 1em 1em 5em 1em;
-      background-image: linear-gradient(to bottom, blue 40%, white);
-    }
-
-    nav,
-    h1 {
-      display: inline;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-    }
-
-    h1,
-    a,
-    li {
-      font-weight: normal;
-      font-size: 1rem;
-    }
-
-    #about {
-      order: -1;
-    }
-  }
-</style>

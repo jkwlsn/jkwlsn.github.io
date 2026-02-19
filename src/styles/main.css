@@ -1,91 +1,256 @@
-@font-face {
-  font-family: 'Instrument Serif';
-  src:
-    local('InstrumentSerif'),
-    url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
-  font-weight: 200 400;
-  font-style: normal;
-  font-display: swap;
-}
+@layer base, components;
 
-:root {
-  --primary-colour: blue;
-  --secondary-colour: white;
-  --tertiary-colour: black;
-  --body-mono-fonts: 'IBM Plex Mono', hack, monospace, monospace;
-  --body-serif-fonts: 'Garamond', 'Times New Roman', serif;
-  --display-serif-fonts: 'Instrument Serif', 'Playfair Display';
-  --heading-fonts:
-    var(--display-serif-fonts), var(--body-serif-fonts), var(--body-mono-fonts);
-  --body-fonts-size: 1.2rem;
-  font-size: var(--body-fonts-size);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-
-  a {
-    color: inherit;
-    text-decoration-thickness: from-font;
-  }
-}
-
-@media print {
-  body {
-    background: none;
+@layer base {
+  @font-face {
+    font-family: 'Instrument Serif';
+    src:
+      local('InstrumentSerif'),
+      url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+    font-weight: 200 400;
+    font-style: normal;
+    font-display: swap;
   }
 
-  img {
-    width: 33%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  article p a:after {
-    content: ' [' attr(href) '] ';
-  }
-
-  .no-print {
-    display: none;
-  }
-}
-
-header {
-  :focus,
-  a:hover,
-  button:hover,
-  ::selection {
-    color: var(--primary-colour);
-    background-color: var(--secondary-colour);
-  }
-}
-
-main {
-  button:hover,
-  ::selection {
-    background-color: var(--primary-colour);
-    color: var(--secondary-colour);
-  }
-  :focus,
-  a:hover {
-    color: var(--primary-colour);
-  }
-}
-
-@media screen and (width >= 40em) {
   :root {
-    --body-fonts-size: 1.5rem;
+    --primary-colour: oklch(0.452 0.3132 264.05);
+    --secondary-colour: oklch(1 0 0);
+    --tertiary-colour: oklch(0 0 0);
+    --body-mono-fonts: 'IBM Plex Mono', hack, monospace, monospace;
+    --body-serif-fonts: 'Garamond', 'Times New Roman', serif;
+    --display-serif-fonts: 'Instrument Serif', 'Playfair Display';
+    --heading-fonts:
+      var(--display-serif-fonts), var(--body-serif-fonts),
+      var(--body-mono-fonts);
+    --body-fonts-size: 1.2rem;
+    font-size: var(--body-fonts-size);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: inherit;
+      text-decoration-thickness: from-font;
+    }
+  }
+
+  @media print {
+    body {
+      background: none;
+      color: black;
+    }
+
+    img {
+      width: 33%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    article p a:after {
+      content: ' [' attr(href) '] ';
+    }
+
+    .no-print {
+      display: none;
+    }
+  }
+
+  @media screen and (width >= 40em) {
+    :root {
+      --body-fonts-size: 1.5rem;
+    }
+  }
+
+  @keyframes blinker {
+    50% {
+      color: var(--secondary-colour);
+      background-color: var(--primary-colour);
+    }
   }
 }
 
-@keyframes blinker {
-  50% {
+@layer components {
+  header {
+    :focus,
+    a:hover,
+    button:hover,
+    ::selection {
+      color: var(--primary-colour);
+      background-color: var(--secondary-colour);
+    }
+  }
+
+  .header-component {
     color: var(--secondary-colour);
+    font-family: var(--body-mono-fonts);
+
+    padding: 1em 1em 2em 1em;
+    background-image: linear-gradient(
+      to bottom,
+      var(--primary-colour) 30%,
+      oklch(from var(--primary-colour) l c h / 0)
+    );
+    position: sticky;
+    top: 0;
+
+    nav,
+    h1 {
+      display: inline;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    a,
+    li {
+      font-weight: normal;
+      font-size: 1rem;
+    }
+  }
+
+  main {
+    button:hover,
+    ::selection {
+      background-color: var(--primary-colour);
+      color: var(--secondary-colour);
+    }
+    :focus,
+    a:hover {
+      color: var(--primary-colour);
+    }
+    padding: 3em 1em 1em 1em;
+  }
+
+  .navigation-component {
+    ul,
+    li {
+      display: inline;
+    }
+
+    li:before {
+      content: '/';
+    }
+  }
+
+  .post-layout {
+    aside {
+      background: yellow;
+      box-shadow: 0.3em 0.3em gold;
+      color: black;
+      padding: 1em;
+      margin: 1.5em;
+      float: right;
+    }
+
+    blockquote,
+    q {
+      quotes: '\0027' '\0027' '\0022' '\0022';
+    }
+
+    blockquote p:before {
+      content: open-quote;
+    }
+
+    blockquote p:after {
+      content: close-quote;
+    }
+
+    hr {
+      border: none;
+      color: inherit;
+    }
+
+    hr::before {
+      content: '---';
+    }
+
+    p {
+      font-family: var(--body-serif-fonts);
+    }
+
+    pre {
+      background: antiquewhite;
+      box-shadow: 0.5em 0.5em darkgrey;
+      margin: 2em;
+      padding: 0 0.5em;
+    }
+
+    code {
+      display: block;
+      overflow-wrap: break-word;
+      text-wrap: auto;
+      font-family: var(--body-fonts-monospace);
+      background-color: antiquewhite;
+      border-left: dotted 0.8em white;
+      border-right: dotted 0.8em darkgrey;
+      padding: 1em;
+      font-size: 0.8em;
+    }
+  }
+
+  .index-page {
+    ol {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .preview-component {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    border-bottom: 2px dashed black;
+
+    h1,
+    h2 {
+      font-family: var(--display-serif-fonts);
+      font-weight: 200;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-block: 0.25em;
+    }
+
+    p {
+      font-family: var(--body-serif-fonts);
+    }
+
+    time {
+      order: -1;
+      font-family: var(--body-mono-fonts);
+      font-size: 0.6em;
+    }
+  }
+
+  #about {
     background-color: var(--primary-colour);
+    padding: 1em 1em 0 1em;
+    font-family: var(--body-mono-fonts);
+    color: var(--secondary-colour);
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    #cursor {
+      display: inline-block;
+      background-color: var(--secondary-colour);
+      color: var(--primary-colour);
+      animation: blinker 1s step-start infinite;
+    }
   }
 }
