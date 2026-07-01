@@ -176,23 +176,30 @@
       font-family: var(--body-serif-fonts);
     }
 
+    code {
+      font-size: 0.8em;
+      background-color: rgba(0, 0, 0, 0.1);
+      font-family: var(--body-mono-fonts);
+      padding-inline: 0.1em;
+    }
+
     pre {
       background: antiquewhite;
       box-shadow: 0.5em 0.5em darkgrey;
       margin: 2em;
       padding: 0 0.5em;
-    }
 
-    code {
-      display: block;
-      overflow-wrap: break-word;
-      text-wrap: auto;
-      font-family: var(--body-fonts-monospace);
-      background-color: antiquewhite;
-      border-left: dotted 0.8em white;
-      border-right: dotted 0.8em darkgrey;
-      padding: 1em;
-      font-size: 0.8em;
+      code {
+        display: block;
+        overflow-wrap: break-word;
+        text-wrap: auto;
+        font-family: var(--body-fonts-monospace);
+        background-color: antiquewhite;
+        border-left: dotted 0.8em white;
+        border-right: dotted 0.8em darkgrey;
+        padding: 1em;
+        font-size: 0.8em;
+      }
     }
   }
 
