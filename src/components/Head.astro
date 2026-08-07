@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import { Font } from 'astro:assets';
 import '../styles/main.css';
 import { pwaInfo } from 'virtual:pwa-info';
 ---
@@ -13,3 +14,5 @@ import { pwaInfo } from 'virtual:pwa-info';
 <link rel="sitemap" href="/sitemap-index.xml" />
 <script src="/src/pwa.ts"></script>
 <ClientRouter />
+<Font cssVariable="--font-instrument-serif" preload />
+<Font cssVariable="--font-plex-mono-regular" preload />
