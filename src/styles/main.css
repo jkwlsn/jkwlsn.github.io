@@ -1,23 +1,13 @@
 @layer base, components;
 
 @layer base {
-  @font-face {
-    font-family: 'Instrument Serif';
-    src:
-      local('InstrumentSerif'),
-      url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
-    font-weight: 200 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   :root {
     --primary-colour: oklch(0.452 0.3132 264.05);
     --secondary-colour: oklch(1 0 0);
     --tertiary-colour: oklch(0 0 0);
-    --body-mono-fonts: 'IBM Plex Mono', hack, monospace, monospace;
+    --body-mono-fonts: var(--font-plex-mono-regular);
     --body-serif-fonts: 'Garamond', 'Times New Roman', serif;
-    --display-serif-fonts: 'Instrument Serif', 'Playfair Display';
+    --display-serif-fonts: var(--font-instrument-serif);
     --heading-fonts:
       var(--display-serif-fonts), var(--body-serif-fonts),
       var(--body-mono-fonts);
