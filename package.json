@@ -23,7 +23,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^2.1.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "prettier": "3.9.4",
+    "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1"
   }
 }
