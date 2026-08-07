@@ -1,24 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Preview from '../components/Preview.astro';
 
-const allPosts = Object.values(
-  import.meta.glob('./posts/*.md', { eager: true }),
-);
+const posts = await getCollection('posts');
 ---
 
 <BaseLayout>
   <section id="blog" class="index-page">
     <ol>
       {
-        allPosts.map((post: any) => (
+        posts.map((post) => (
           <li>
-            <Preview
-              url={post.url}
-              title={post.frontmatter.title}
-              pubDate={post.frontmatter.pubDate}
-              standfirst={post.frontmatter.standfirst}
-            />
+            <Preview post={post} />
           </li>
         ))
       }

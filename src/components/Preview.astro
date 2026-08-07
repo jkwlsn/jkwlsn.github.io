@@ -1,5 +1,5 @@
 ---
-const { title, url, pubDate, standfirst } = Astro.props;
+const { post } = Astro.props;
 
 const options: Intl.DateTimeFormatOptions = {
   hour12: false,
@@ -16,17 +16,17 @@ const options: Intl.DateTimeFormatOptions = {
   //  era: 'long',
 };
 
-const date = new Date(pubDate);
-
-const displayDate = new Intl.DateTimeFormat(undefined, options).format(date);
+const displayDate = new Intl.DateTimeFormat(undefined, options).format(
+  post.data.pubDate,
+);
 ---
 
 <div class="preview-component">
   <h1>
-    <a href={url} title={title}>
-      {title}
+    <a href={`/posts/${post.id}`} title={post.data.title}>
+      {post.data.title}
     </a>
   </h1>
   <time>{displayDate}</time>
-  <p>{standfirst}</p>
+  <p>{post.data.description}</p>
 </div>
