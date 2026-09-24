@@ -1,22 +1,15 @@
+---
+import { nav, type NavItem } from '../config';
+---
+
 <nav class="navigation-component">
-  <ul>
-    <li>
-      <a rel="author" title="hi@jkwlsn.dev" href="mailto:hi@jkwlsn.dev">Email</a
-      >
-    </li>
-    <li>
-      <a
-        rel="external"
-        title="@jkwlsn on GitHub"
-        href="https://github.com/jkwlsn">Github</a
-      >
-    </li>
-    <li>
-      <a
-        rel="external"
-        title="@jkwlsn  on LinkedIn"
-        href="https://www.linkedin.com/in/jkwlsn">LinkedIn</a
-      >
-    </li>
-  </ul>
+    <ul>
+        {nav.map((item: NavItem) => (
+            <li>
+                <a rel={item.rel} title={item.title} href={item.link}>
+                    {item.text}
+                </a>
+            </li>
+        ))}
+    </ul>
 </nav>
