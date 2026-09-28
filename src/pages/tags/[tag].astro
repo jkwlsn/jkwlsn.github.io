@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Preview from "../../components/Preview.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+
+    const tags = new Set(
+        posts.flatMap(
+            ({ data }) =>
+                data.tags
+                    ?.map((tag) => tag.trim().toLowerCase())
+                    .filter(Boolean) ?? [],
+        ),
+    );
+
+    return [...tags]
+        .sort((a, b) => a.localeCompare(b))
+        .map((tag) => ({
+            params: { tag },
+        }));
+}
+
+const { tag } = Astro.params;
+
+const posts = await getCollection("posts");
+
+const taggedPosts = posts.filter((post) =>
+    post.data.tags?.some(
+        (postTag) => postTag.toLowerCase() === tag?.toLowerCase(),
+    ),
+);
+
+const title = `Pages tagged with '${tag}'`;
+---
+
+<BaseLayout>
+    <header class="page-header">
+        <h1>{title}</h1>
+    </header>
+    <section id="tag-index" class="index-page">
+        <ol>
+            {taggedPosts.map((post) => (
+                <li>
+                    <Preview post={post} />
+                </li>
+            ))}
+        </ol>
+    </section>
+</BaseLayout>
+
+<style>
+    .page-header h1 {
+        font-size: 5rem;
+        font-family: var(--display-serif-fonts);
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 1em;
+    }
+</style>
