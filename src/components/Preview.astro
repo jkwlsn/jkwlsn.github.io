@@ -30,6 +30,6 @@ const displayDate = new Intl.DateTimeFormat(undefined, options).format(
         </a>
     </h1>
     <time>{displayDate}</time>
-    <p>{post.data.description}</p>
+    {post.data.description && <p>{post.data.description}</p>}
     {post.data.tags && <Tags tags={post.data.tags} />}
 </div>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageTitle from "../../components/PageTitle.astro";
 
 const posts = await getCollection("posts");
 
@@ -19,9 +20,7 @@ const title = "Tag index";
 ---
 
 <BaseLayout>
-    <header>
-        <h1>{title}</h1>
-    </header>
+    <PageTitle title={title} />
     <section id="tag-index" class="index-page">
         <ol>
             {tags.map((tag) => (
