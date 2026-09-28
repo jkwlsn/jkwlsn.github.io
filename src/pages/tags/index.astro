@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = await getCollection("posts");
+
+const tags = [
+    ...new Set(
+        posts.flatMap(
+            ({ data }) =>
+                data.tags
+                    ?.map((tag) => tag.trim().toLowerCase())
+                    .filter(Boolean) ?? [],
+        ),
+    ),
+].sort((a, b) => a.localeCompare(b));
+
+const title = "Tag index";
+---
+
+<BaseLayout>
+    <header>
+        <h1>{title}</h1>
+    </header>
+    <section id="tag-index" class="index-page">
+        <ol>
+            {tags.map((tag) => (
+                <li>
+                    <a href={`/tags/${tag}`}>{tag}</a>
+                </li>
+            ))}
+        </ol>
+    </section>
+</BaseLayout>
