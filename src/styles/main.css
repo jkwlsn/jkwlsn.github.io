@@ -126,7 +126,7 @@
     }
 
     li:before {
-      content: '/';
+      content: ' / ';
     }
   }
 
