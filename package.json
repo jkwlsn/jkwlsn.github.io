@@ -24,6 +24,6 @@
     "oxlint": "^1.85.0",
     "prettier": "^3.9.8",
     "prettier-plugin-astro": "^1.0.1",
-    "typescript": "5.7.3"
+    "typescript": "7.0.2"
   }
 }
