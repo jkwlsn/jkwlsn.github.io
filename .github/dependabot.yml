@@ -9,18 +9,58 @@ updates:
       time: '06:00'
       timezone: 'Europe/London'
 
+    cooldown:
+      default-days: 3
+      semver-major-days: 7
+      semver-minor-days: 3
+      semver-patch-days: 3
+
     groups:
-      production-dependencies:
+      # Update framework together
+      framework:
+        patterns:
+          - '@sveltejs/**'
+          - 'svelte'
+          - 'vite'
+          - 'vite-*'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+      tooling:
+        dependency-type: 'development'
+        patterns:
+          - 'typescript'
+          - '@oxlint/*'
+          - 'vitest'
+          - '@vitest/*'
+          - 'playwright'
+          - '@playwright/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+      production-minor:
         dependency-type: 'production'
         update-types:
           - 'minor'
           - 'patch'
 
-      development-dependencies:
+      development-minor:
         dependency-type: 'development'
         update-types:
           - 'minor'
           - 'patch'
+
+      production-major:
+        dependency-type: 'production'
+        update-types:
+          - 'major'
+
+      development-major:
+        dependency-type: 'development'
+        update-types:
+          - 'major'
 
     labels:
       - 'dependencies'
