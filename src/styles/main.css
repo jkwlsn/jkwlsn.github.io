@@ -6,9 +6,11 @@
     --secondary-colour: oklch(1 0 0);
     --tertiary-colour: oklch(0 0 0);
     --body-mono-fonts: var(--font-plex-mono-regular);
-    --body-serif-fonts: "Garamond", "Times New Roman", serif;
+    --body-serif-fonts: 'Garamond', 'Times New Roman', serif;
     --display-serif-fonts: var(--font-instrument-serif);
-    --heading-fonts: var(--display-serif-fonts), var(--body-serif-fonts), var(--body-mono-fonts);
+    --heading-fonts:
+      var(--display-serif-fonts), var(--body-serif-fonts),
+      var(--body-mono-fonts);
     --body-fonts-size: 1.2rem;
     font-size: var(--body-fonts-size);
     font-family: var(--body-serif-fonts);
@@ -41,7 +43,7 @@
     }
 
     article p a:after {
-      content: " [" attr(href) "] ";
+      content: ' [' attr(href) '] ';
     }
 
     .no-print {
@@ -125,7 +127,7 @@
     }
 
     li:before {
-      content: "/";
+      content: ' / ';
     }
   }
 
@@ -141,7 +143,7 @@
 
     blockquote,
     q {
-      quotes: "\0027" "\0027" "\0022" "\0022";
+      quotes: '\0027' '\0027' '\0022' '\0022';
     }
 
     blockquote p:before {
@@ -158,7 +160,7 @@
     }
 
     hr::before {
-      content: "---";
+      content: '---';
     }
 
     p {
