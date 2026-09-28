@@ -1,0 +1,44 @@
+---
+const { tags } = Astro.props;
+---
+
+<div class="tags">
+    <ul>
+        {tags?.map((tag: string) => (
+            <li>
+                <a rel="internal" href=`/tags/${tag}`>
+                    {tag}
+                </a>
+            </li>
+        ))}
+    </ul>
+</div>
+
+<style>
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        border: 1px solid var(--tertiary-colour);
+        padding: 0.3em;
+        font-family: var(--body-mono-fonts);
+        font-size: 0.6em;
+    }
+
+    a:hover {
+        cursor: pointer;
+        background: var(--primary-colour);
+        border-color: var(--primary-colour);
+        color: var(--secondary-colour);
+    }
+
+    div {
+        margin-bottom: 1em;
+    }
+</style>
