@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Preview from "../../components/Preview.astro";
+import PageTitle from "../../components/PageTitle.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -36,9 +37,7 @@ const title = `Pages tagged with '${tag}'`;
 ---
 
 <BaseLayout>
-    <header class="page-header">
-        <h1>{title}</h1>
-    </header>
+    <PageTitle title={title} />
     <section id="tag-index" class="index-page">
         <ol>
             {taggedPosts.map((post) => (
@@ -49,13 +48,3 @@ const title = `Pages tagged with '${tag}'`;
         </ol>
     </section>
 </BaseLayout>
-
-<style>
-    .page-header h1 {
-        font-size: 5rem;
-        font-family: var(--display-serif-fonts);
-        font-weight: normal;
-        margin: 0;
-        margin-bottom: 1em;
-    }
-</style>
