@@ -2,6 +2,7 @@ import { getRssString } from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import sanitizeHtml from 'sanitize-html';
 import MarkdownIt from 'markdown-it';
+import { siteConfig } from '../config';
 
 const parser = new MarkdownIt();
 
@@ -13,14 +14,15 @@ export async function GET(context) {
   );
 
   const xml = await getRssString({
-    title: 'Jake Wilson',
-    description: 'A blog about software development',
+    title: siteConfig.title,
+    description: siteConfig.description,
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/posts/${post.id}`,
+      link: new URL(`/posts/${post.id}`, context.site).href,
+      author: siteConfig.author.email,
       content: sanitizeHtml(parser.render(post.body ?? ''), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat([
           'img',
