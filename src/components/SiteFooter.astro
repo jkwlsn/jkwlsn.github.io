@@ -1,0 +1,24 @@
+---
+const year = new Intl.DateTimeFormat(undefined, { year: "numeric" }).format(
+    new Date(),
+);
+---
+
+<footer>
+    <section>
+        <small>Copyright © {year} Jake Wilson. All rights reserved.</small>
+    </section>
+</footer>
+
+<style>
+    footer {
+        padding: 0.5em 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    small {
+        font-family: var(--body-mono-fonts);
+        font-size: 0.6em;
+    }
+</style>
