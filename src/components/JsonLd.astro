@@ -1,0 +1,61 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+    type?: "WebSite" | "BlogPosting";
+    title?: string;
+    description?: string;
+    publishDate?: Date;
+    updatedDate?: Date;
+    url?: string;
+}
+
+const {
+    type = "WebSite",
+    title = siteConfig.title,
+    description = siteConfig.description,
+    publishDate,
+    updatedDate,
+    url = Astro.url.href,
+} = Astro.props;
+
+const personSchema = {
+    "@type": "Person",
+    name: siteConfig.author.name,
+    jobTitle: siteConfig.author.jobTitle,
+    email: siteConfig.author.email,
+    url: Astro.site?.href,
+    alumniOf: siteConfig.author.alumniOf,
+    sameAs: siteConfig.author.socials,
+};
+
+let schema;
+
+if (type === "BlogPosting") {
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description: description,
+        datePublished: publishDate?.toISOString(),
+        dateModified: updatedDate?.toISOString() || publishDate?.toISOString(),
+        mainEntityOfPage: url,
+        author: personSchema,
+    };
+} else {
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                name: siteConfig.title,
+                url: Astro.site?.href,
+                description: siteConfig.description,
+            },
+            personSchema,
+        ],
+    };
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
