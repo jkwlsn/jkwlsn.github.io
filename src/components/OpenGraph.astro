@@ -1,0 +1,28 @@
+---
+export interface Props {
+    ogTitle: string;
+    ogDescription: string;
+    ogType?: string;
+    ogUrl: string;
+    ogImage?: string;
+    ogImageAlt?: string;
+}
+
+const {
+    ogType = "Website",
+    ogUrl,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    ogImageAlt,
+} = Astro.props;
+---
+
+<!-- Open Graph tags -->
+<meta property="og:title" content={ogTitle} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={ogUrl} />
+<meta property="og:description" content={ogDescription} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+{ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+<!-- End Open Graph tags -->
