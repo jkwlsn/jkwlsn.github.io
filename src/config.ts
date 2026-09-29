@@ -1,5 +1,16 @@
+export interface SiteConfig {
+  title: string;
+  description: string;
+  keywords: string;
+}
+
+export const siteConfig: SiteConfig = {
+  title: "Jake Wilson",
+  description: "Software developer and writer",
+  keywords: "Software, Developer",
+};
+
 export interface NavItem {
-  rel: string;
   title: string;
   text: string;
   link: string;
