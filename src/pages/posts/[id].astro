@@ -22,7 +22,7 @@ const description = post.data.description;
 const keywords = post.data.tags ? post.data.tags.join(", ") : undefined;
 ---
 
-<BaseLayout title={title} description={description} keywords={keywords}>
+<BaseLayout title={title} description={description} keywords={keywords} type="BlogPosting" publishDate={post.data.date} updatedDate={post.data.updatedDate}>
   <article class="post-layout">
     <header>
       <Preview post={post} />

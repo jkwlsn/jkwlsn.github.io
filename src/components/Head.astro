@@ -4,12 +4,16 @@ import { Font } from "astro:assets";
 import { siteConfig } from "../config";
 import "@styles/main.css";
 import OpenGraph from "@components//OpenGraph.astro";
+import JsonLd from "@components/JsonLd.astro";
 
 export interface Props {
     title?: string;
     description?: string;
     keywords?: string;
     canonicalURL?: string;
+    type?: "WebSite" | "BlogPosting";
+    publishDate?: Date;
+    updatedDate?: Date;
 }
 
 const {
@@ -18,6 +22,9 @@ const {
     keywords: pageKeywords,
     canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url)
         .href,
+    type = "WebSite",
+    publishDate,
+    updatedDate,
 } = Astro.props;
 
 const title = pageTitle
@@ -57,3 +64,4 @@ const keywords = [
     href={new URL("rss.xml", Astro.site)}
 />
 <OpenGraph ogTitle={title} ogDescription={description} ogUrl={canonicalURL} />
+<JsonLd type={type} title={pageTitle} description={description} publishDate={publishDate} updatedDate={updatedDate} url={canonicalURL} />
