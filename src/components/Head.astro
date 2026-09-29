@@ -1,15 +1,49 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { Font } from "astro:assets";
+import { siteConfig } from "../config";
 import "../styles/main.css";
+
+export interface Props {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    canonicalURL?: string;
+}
+
+const {
+    title: pageTitle,
+    description = siteConfig.description,
+    keywords: pageKeywords,
+    canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url)
+        .href,
+} = Astro.props;
+
+const title = pageTitle
+    ? `${pageTitle} - ${siteConfig.title}`
+    : description
+      ? `${siteConfig.title} - ${description}`
+      : siteConfig.title;
+const rawKeywords = [
+    ...(pageKeywords ? pageKeywords.split(",") : []),
+    ...(siteConfig.keywords ? siteConfig.keywords.split(",") : []),
+];
+const keywords = [
+    ...new Set(rawKeywords.map((k) => k.trim().toLowerCase()).filter(Boolean)),
+]
+    .sort((a, b) => a.localeCompare(b))
+    .join(", ");
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jake Wilson</title>
-<link rel="icon" href="/favicon.ico" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<link rel="canonical" href={canonicalURL} />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
+<link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <script src="/src/pwa.ts"></script>
 <ClientRouter />
