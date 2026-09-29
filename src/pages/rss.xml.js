@@ -13,7 +13,7 @@ export async function GET(context) {
   );
 
   const xml = await getRssString({
-    title: "Jake Wilson's posts",
+    title: 'Jake Wilson',
     description: 'A blog about software development',
     site: context.site,
     items: posts.map((post) => ({
