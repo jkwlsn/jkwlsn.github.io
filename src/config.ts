@@ -2,15 +2,38 @@ export interface SiteConfig {
   title: string;
   description: string;
   keywords: string;
+  author: {
+    name: string;
+    jobTitle: string;
+    email: string;
+    alumniOf: object;
+    socials: string[];
+  };
 }
 
 export const siteConfig: SiteConfig = {
-  title: "Jake Wilson",
-  description: "Software developer and writer",
-  keywords: "Software, Developer",
+  title: 'Jake Wilson',
+  description: 'Software developer and writer',
+  keywords: 'Software, Developer',
+  author: {
+    name: 'Jake Wilson',
+    jobTitle: 'Software Developer',
+    email: 'hi@jkwlsn.dev',
+    alumniOf: {
+      type: 'EducationalOrganization',
+      name: 'Makers Academy',
+      sameAs: 'https://makers.tech/',
+      startDate: '2025',
+    },
+    socials: [
+      'https://www.linkedin.com/in/jkwlsn',
+      'https://github.com/jkwlsn',
+    ],
+  },
 };
 
 export interface NavItem {
+  rel: string;
   title: string;
   text: string;
   link: string;
