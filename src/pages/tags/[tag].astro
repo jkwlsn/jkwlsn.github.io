@@ -34,9 +34,10 @@ const taggedPosts = posts.filter((post) =>
 );
 
 const title = `Pages tagged with '${tag}'`;
+const keywords = tag ? tag : undefined;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} keywords={keywords}>
     <PageTitle title={title} />
     <section id="tag-index" class="index-page">
         <ol>
