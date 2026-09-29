@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Preview from "../../components/Preview.astro";
-import PageTitle from "../../components/PageTitle.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Preview from "@components/Preview.astro";
+import PageTitle from "@components/Head.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
