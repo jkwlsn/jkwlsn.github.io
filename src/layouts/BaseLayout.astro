@@ -1,18 +1,20 @@
 ---
-import Head from '../components/Head.astro';
-import Header from '../components/Header.astro';
-import About from '../components/About.astro';
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import About from "../components/About.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 ---
 
 <html lang="en">
-  <head>
-    <Head />
-  </head>
-  <body class="base-layout">
-    <About />
-    <Header />
-    <main>
-      <slot />
-    </main>
-  </body>
+    <head>
+        <Head />
+    </head>
+    <body class="base-layout">
+        <About />
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <SiteFooter />
+    </body>
 </html>
