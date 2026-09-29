@@ -24,4 +24,10 @@ export const nav: NavItem[] = [
     text: 'LinkedIn',
     link: 'https://www.linkedin.com/in/jkwlsn',
   },
+  {
+    rel: 'alternate',
+    title: 'RSS feed',
+    link: '/rss.xml',
+    text: 'RSS',
+  },
 ];
