@@ -4,9 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Preview from '../components/Preview.astro';
 
 const posts = await getCollection('posts');
+const title = "Jake Wilson - Software developer and writer";
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <section id="blog" class="index-page">
     <ol>
       {
