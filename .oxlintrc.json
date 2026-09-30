@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "options": { "typeAware": true, "typeCheck": true },
+  "plugins": ["typescript", "unicorn", "import", "jsx-a11y", "oxc", "vitest"],
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "node": true
+  },
+  "ignorePatterns": [
+    "**/dev-dist",
+    "**/.output",
+    "build",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.env",
+    "**/.env.*",
+    "!**/.env.example",
+    "!**/.env.test",
+    "**/vite.config.js.timestamp-*",
+    "**/vite.config.ts.timestamp-*",
+    "**/test-results",
+    "astro.config.mjs"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "pedantic": "off"
+  },
+  "rules": {}
+}
