@@ -13,12 +13,24 @@ const props = Astro.props;
     <head>
         <Head {...props} />
     </head>
-    <body class="base-layout">
+    <body id="base-layout">
         <About />
         <Header />
-        <main>
+        <main id="site-main">
             <slot />
         </main>
         <SiteFooter />
     </body>
 </html>
+
+<style>
+    #base-layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    #site-main {
+        flex: 1;
+    }
+</style>
