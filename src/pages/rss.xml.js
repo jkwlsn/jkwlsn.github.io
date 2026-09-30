@@ -35,7 +35,10 @@ export async function GET(context) {
         },
       }),
     })),
-    customData: `<language>en-gb</language>`,
+    customData: `<language>en-gb</language><atom:link href="${new URL('rss.xml', context.site)}" rel="self" type="application/rss+xml" />`,
+    xmlns: {
+      atom: 'http://www.w3.org/2005/Atom',
+    },
   });
 
   return new Response(xml, {
