@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "lint": "oxlint --type-aware",
+    "lint": "oxlint --type-aware --type-check",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "build": "astro build",

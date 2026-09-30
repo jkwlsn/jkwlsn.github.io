@@ -1,0 +1,75 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "promise"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    // Core
+    "eqeqeq": "error",
+    "prefer-const": "error",
+    "prefer-template": "warn",
+    "prefer-object-spread": "warn",
+    "object-shorthand": "warn",
+    "require-unicode-regexp": "warn",
+    "no-nested-ternary": "warn",
+    "no-throw-literal": "error",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    "arrow-body-style": "warn",
+    "prefer-destructuring": "warn",
+    "no-template-curly-in-string": "warn",
+    "no-else-return": "warn",
+    "no-lonely-if": "warn",
+    "no-useless-return": "warn",
+    "default-param-last": "warn",
+
+    // TypeScript
+    "typescript/no-explicit-any": "warn",
+    "typescript/consistent-type-imports": "warn",
+    "typescript/no-non-null-assertion": "warn",
+    "typescript/consistent-indexed-object-style": "warn",
+    "typescript/no-import-type-side-effects": "warn",
+    "typescript/ban-ts-comment": "warn",
+    "typescript/no-empty-object-type": "warn",
+
+    // TypeScript, type-aware (needs oxlint --type-aware)
+    "typescript/no-floating-promises": "warn",
+    "typescript/no-misused-promises": "warn",
+    "typescript/await-thenable": "error",
+    "typescript/restrict-template-expressions": "warn",
+    "typescript/no-unnecessary-type-assertion": "warn",
+    "typescript/no-unnecessary-boolean-literal-compare": "warn",
+    "typescript/no-unnecessary-template-expression": "warn",
+
+    // Unicorn
+    "unicorn/prefer-spread": "warn",
+    "unicorn/prefer-logical-operator-over-ternary": "warn",
+    "unicorn/prefer-node-protocol": "warn",
+    "unicorn/prefer-array-find": "warn",
+    "unicorn/prefer-array-flat-map": "warn",
+    "unicorn/prefer-set-has": "warn",
+    "unicorn/prefer-structured-clone": "warn",
+    "unicorn/no-useless-spread": "warn",
+    "unicorn/no-await-expression-member": "warn",
+
+    // Import
+    "import/no-duplicates": "warn",
+    "import/no-cycle": "error",
+    "import/no-self-import": "error",
+    "import/no-named-as-default": "warn",
+    "import/no-named-as-default-member": "warn",
+    "import/first": "warn",
+    "import/no-mutable-exports": "error",
+    "import/no-unassigned-import": ["warn", { "allow": ["**/*.css"] }],
+    "import/consistent-type-specifier-style": "warn",
+    "import/no-default-export": "warn",
+
+    // Promise
+    "promise/catch-or-return": "warn",
+    "promise/no-return-wrap": "warn"
+  },
+  "ignorePatterns": ["dist", ".astro", "node_modules", "astro.config.mjs"]
+}
