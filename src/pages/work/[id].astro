@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from "astro:content";
+import { Picture } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Tags from "@components/Tags.astro";
+
+export async function getStaticPaths() {
+    const work = await getCollection("work");
+
+    return work.map((project) => {
+        return {
+            params: { id: project.id },
+            props: { project },
+        };
+    });
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const { title, startDate, endDate, featuredImage, description, tags, images } =
+    project.data;
+
+const keywords = project.data.tags?.join(", ");
+
+const options: Intl.DateTimeFormatOptions = {
+    hour12: false,
+    dateStyle: "full",
+};
+
+const formatDate = (date: Date | string | undefined) => {
+    if (!date) return undefined;
+    return new Intl.DateTimeFormat(undefined, options).format(new Date(date));
+};
+
+const formattedStartDate = formatDate(startDate);
+const formattedEndDate = formatDate(endDate);
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+    <article class="project-layout">
+        <header>
+            <h1>
+                <a href={`/work/${project.id}`} {title}>
+                    {title}
+                </a>
+            </h1>
+            <span>
+                {formattedStartDate && <time>{formattedStartDate}</time>}
+                {formattedEndDate && <time> – {formattedEndDate}</time>}
+            </span>
+            {featuredImage && (
+                <Picture
+                    src={featuredImage.src}
+                    alt={featuredImage.alt}
+                    formats={["avif", "webp"]}
+                />
+            )}
+            <p>{description}</p>
+            {tags && <Tags {tags} />}
+        </header>
+        <section>
+            <ul>
+                {images?.map((image) => (
+                    <li>
+                        <figure>
+                            <Picture
+                                src={image.src}
+                                alt={image.alt}
+                                formats={["avif", "webp"]}
+                            />
+                            {image.caption && (
+                                <figcaption>{image.caption}</figcaption>
+                            )}
+                        </figure>
+                    </li>
+                ))}
+            </ul>
+        </section>
+        <section>
+            <Content />
+        </section>
+        <footer></footer>
+    </article>
+</BaseLayout>

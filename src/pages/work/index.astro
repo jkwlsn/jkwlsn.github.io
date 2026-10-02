@@ -1,0 +1,135 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageTitle from "@components/PageTitle.astro";
+import Tags from "@components/Tags.astro";
+
+const work = await getCollection("work");
+
+const title = "Work";
+const description =
+    "Jake Wilson is a freelance software developer available to hire";
+
+const options: Intl.DateTimeFormatOptions = {
+    hour12: false,
+    dateStyle: "medium",
+};
+
+const formatDate = (date: Date | string | undefined) => {
+    if (!date) return undefined;
+    return new Intl.DateTimeFormat(undefined, options).format(new Date(date));
+};
+---
+
+<BaseLayout {title} {description}>
+    <PageTitle {title} />
+    <section id="projects">
+        <ul id="project-index">
+            {work.map((project) => {
+                const {
+                    title,
+                    startDate,
+                    endDate,
+                    featuredImage,
+                    description,
+                    tags,
+                    clients,
+                } = project.data;
+
+                const formattedStartDate = formatDate(startDate);
+                const formattedEndDate = formatDate(endDate);
+
+                return (
+                    <li class="project">
+                        <h2 class="project-title">
+                            <a
+                                href={`/work/${project.id}`}
+                                class="project-link"
+                            >
+                                {title}
+                            </a>
+                        </h2>
+                        <span class="project-timespan">
+                            {formattedStartDate && (
+                                <time class="timespan-start">
+                                    {formattedStartDate}
+                                </time>
+                            )}
+                            {formattedEndDate && (
+                                <time class="timespan-end">
+                                    {formattedEndDate}
+                                </time>
+                            )}
+                        </span>
+                        {featuredImage && (
+                            <Picture
+                                src={featuredImage.src}
+                                alt={featuredImage.alt}
+                                inferSize
+                            />
+                        )}
+                        <p class="project-description">{description}</p>
+                        {clients && (
+                            <ul id="project-clients">
+                                {clients.map((client) => (
+                                    <li class="project-client">
+                                        <a href={client.link}>{client.name}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        {tags && <Tags {tags} />}
+                    </li>
+                );
+            })}
+        </ul>
+    </section>
+</BaseLayout>
+
+<style>
+    #project-index {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column;
+        /*  grid-template-areas:
+                "image title"
+                "image time"
+                "image desc"
+                "image tags";
+        */
+        background: hotpink;
+
+        .tags {
+            grid-area: tags;
+        }
+    }
+
+    .project picture {
+        grid-area: image;
+    }
+
+    .project-title {
+        grid-area: title;
+        font-size: 3rem;
+        margin-block: 0.25em;
+        font-weight: normal;
+        font-family: var(--headin-fonts);
+    }
+
+    .project-timespan {
+        order: -1;
+        /* grid-area: time; */
+        font-family: var(--body-mono-fonts);
+        font-size: 0.6em;
+    }
+
+    .project-description {
+        grid-area: desc;
+    }
+</style>

@@ -41,6 +41,12 @@ export interface NavItem {
 
 export const nav: NavItem[] = [
   {
+    rel: 'me',
+    title: 'Work with me',
+    text: 'Work',
+    link: '/work',
+  },
+  {
     rel: 'author',
     title: 'hi@jkwlsn.dev',
     text: 'Email',
