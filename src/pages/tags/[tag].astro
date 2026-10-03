@@ -17,7 +17,7 @@ export async function getStaticPaths() {
     );
 
     return [...tags]
-        .sort((a, b) => a.localeCompare(b))
+        .toSorted((a, b) => a.localeCompare(b))
         .map((tag) => ({
             params: { tag },
         }));
@@ -34,7 +34,7 @@ const taggedPosts = posts.filter((post) =>
 );
 
 const title = `Pages tagged with '${tag}'`;
-const keywords = tag ? tag : undefined;
+const keywords = tag || undefined;
 ---
 
 <BaseLayout title={title} keywords={keywords}>

@@ -20,26 +20,27 @@ const {
     title: pageTitle,
     description = siteConfig.description,
     keywords: pageKeywords,
-    canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url)
-        .href,
+    canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
     type = "WebSite",
     publishDate,
     updatedDate,
 } = Astro.props;
 
-const title = pageTitle
-    ? `${pageTitle} - ${siteConfig.title}`
-    : description
-      ? `${siteConfig.title} - ${description}`
-      : siteConfig.title;
+const title = (() => {
+    if (pageTitle) return `${pageTitle} - ${siteConfig.title}`;
+    if (description) return `${siteConfig.title} - ${description}`;
+    return siteConfig.title;
+})();
+
 const rawKeywords = [
     ...(pageKeywords ? pageKeywords.split(",") : []),
     ...(siteConfig.keywords ? siteConfig.keywords.split(",") : []),
 ];
+
 const keywords = [
     ...new Set(rawKeywords.map((k) => k.trim().toLowerCase()).filter(Boolean)),
 ]
-    .sort((a, b) => a.localeCompare(b))
+    .toSorted((a, b) => a.localeCompare(b))
     .join(", ");
 ---
 
@@ -64,4 +65,11 @@ const keywords = [
     href={new URL("rss.xml", Astro.site)}
 />
 <OpenGraph ogTitle={title} ogDescription={description} ogUrl={canonicalURL} />
-<JsonLd type={type} title={pageTitle} description={description} publishDate={publishDate} updatedDate={updatedDate} url={canonicalURL} />
+<JsonLd
+    type={type}
+    title={pageTitle}
+    description={description}
+    publishDate={publishDate}
+    updatedDate={updatedDate}
+    url={canonicalURL}
+/>
