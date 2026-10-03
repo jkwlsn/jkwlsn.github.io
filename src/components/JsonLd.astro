@@ -36,7 +36,7 @@ if (type === "BlogPosting") {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         headline: title,
-        description: description,
+        description,
         datePublished: publishDate?.toISOString(),
         dateModified: updatedDate?.toISOString() || publishDate?.toISOString(),
         mainEntityOfPage: url,

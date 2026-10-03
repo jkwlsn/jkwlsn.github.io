@@ -1,12 +1,13 @@
 ---
-import Head, { type Props as HeadProps } from "@components/Head.astro";
+import Head from '@components/Head.astro';
+import type { Props as HeadProps } from '@components/Head.astro';
 import Header from "@components/Header.astro";
 import About from "@components/About.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 
 export type Props = HeadProps;
 
-const props = Astro.props;
+const {props} = Astro;
 ---
 
 <html lang="en">

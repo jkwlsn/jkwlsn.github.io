@@ -8,7 +8,8 @@ const parser = new MarkdownIt();
 
 export async function GET(context) {
   // Load posts for RSS feed
-  const posts = (await getCollection('posts')).sort((a, b) =>
+  const postsCollection = await getCollection('posts');
+  const posts = postsCollection.toSorted((a, b) =>
     // Sort posts by pubdate descending
     a.data.pubDate > b.data.pubDate ? -1 : 1,
   );
@@ -24,11 +25,12 @@ export async function GET(context) {
       link: new URL(`/posts/${post.id}`, context.site).href,
       author: siteConfig.author.email,
       content: sanitizeHtml(parser.render(post.body ?? ''), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+        allowedTags: [
+          ...sanitizeHtml.defaults.allowedTags,
           'img',
           'pre',
           'code',
-        ]),
+        ],
         allowedAttributes: {
           ...sanitizeHtml.defaults.allowedAttributes,
           img: ['src', 'alt', 'title'],

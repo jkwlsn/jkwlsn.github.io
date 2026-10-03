@@ -6,19 +6,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
 
-  return posts.map((post) => {
-    return {
+  return posts.map((post) => (
+    {
       params: { id: post.id },
       props: { post },
-    };
-  });
+    }
+  ));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const title = post.data.title;
-const description = post.data.description;
+const {title} = post.data;
+const {description} = post.data;
 const keywords = post.data.tags ? post.data.tags.join(", ") : undefined;
 ---
 

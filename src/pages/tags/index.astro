@@ -14,7 +14,7 @@ const tags = [
                     .filter(Boolean) ?? [],
         ),
     ),
-].sort((a, b) => a.localeCompare(b));
+].toSorted((a, b) => a.localeCompare(b));
 
 const title = "Tag index - Jake Wilson";
 ---
