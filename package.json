@@ -20,10 +20,10 @@
     "workbox-window": "^7.4.1"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.70.0",
+    "@typescript-eslint/parser": "^8.71.0",
     "@vite-pwa/astro": "^1.2.0",
-    "oxfmt": "^0.70.0",
-    "oxlint": "^1.85.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
     "oxlint-tsgolint": "^7.0.2003",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0",
