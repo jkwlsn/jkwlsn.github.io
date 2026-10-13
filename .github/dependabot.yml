@@ -19,8 +19,8 @@ updates:
       # Update framework together
       framework:
         patterns:
-          - '@sveltejs/**'
-          - 'svelte'
+          - '@astrojs/*'
+          - 'astro'
           - 'vite'
           - 'vite-*'
         update-types:
