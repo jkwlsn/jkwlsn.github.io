@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.8",
     "markdown-it": "^15.0.2",
-    "sanitize-html": "^2.18.0",
+    "sanitize-html": "^2.18.1",
     "workbox-window": "^7.4.1"
   },
   "devDependencies": {
